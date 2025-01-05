@@ -118,33 +118,21 @@ A complete Guide to Install Frappe/ERPNext version 15  in Ubuntu 22.04 LTS
 
 ### STEP 7 Edit the mariadb configuration ( unicode character encoding )
 
-    sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+    sudo nano /opt/homebrew/etc/my.cnf
 
-add this to the 50-server.cnf file
+
+add this to the my.cnf file
 
     
-    [server]
-    user = mysql
-    pid-file = /run/mysqld/mysqld.pid
-    socket = /run/mysqld/mysqld.sock
-    basedir = /usr
-    datadir = /var/lib/mysql
-    tmpdir = /tmp
-    lc-messages-dir = /usr/share/mysql
-    bind-address = 127.0.0.1
-    query_cache_size = 16M
-    log_error = /var/log/mysql/error.log
-    
-    [mysqld]
-    innodb-file-format=barracuda
-    innodb-file-per-table=1
-    innodb-large-prefix=1
-    character-set-client-handshake = FALSE
-    character-set-server = utf8mb4
-    collation-server = utf8mb4_unicode_ci      
-     
-    [mysql]
-    default-character-set = utf8mb4
+   [mysqld]
+   character-set-client-handshake = FALSE
+   character-set-server = utf8mb4
+   collation-server = utf8mb4_unicode_ci
+   bind-address = 127.0.0.1
+
+  [mysql]
+  default-character-set = utf8mb4
+
 
 Now press (Ctrl-X) to exit
 
